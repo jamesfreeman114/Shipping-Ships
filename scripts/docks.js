@@ -1,0 +1,21 @@
+import { getDocks } from "./database.js"
+
+
+export const DockList = () => {
+    const docks = getDocks()
+
+    let docksHTML = "<ul>"
+
+    for (const dock of docks) {
+        // Convert each dock object to an <li> and append to the docksHTML string
+        docksHTML += `${dock.location} can hold ${dock.volume} tons of cargo.`
+
+    }
+
+    docksHTML += "</ul>"
+
+    return docksHTML
+}
+
+const dockTest = DockList()
+console.log(dockTest)
