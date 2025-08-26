@@ -14,8 +14,7 @@ export const shippingShipsList = () => {
         cargoShipHTML += `<li
                            data-type="cargoship"
                            data-id="${ship.id}"
-                           data-foreignkey=${ship.haulerId}
-                           data-name=${ship.name}>
+                           data-foreignkey=${ship.haulerId}>
                            ${ship.name}
                            </li>`        
     }
@@ -54,8 +53,19 @@ document.addEventListener(
                     }
                 } 
             // Show an alert to the user with this format...
+            const shippingShips = getShippingShips()
+            const shipId = itemClicked.dataset.id
 
-            window.alert(`${itemClicked.dataset.name} is being hauled by ${haulingShip}`)
+            let shippingShip = {name: "Incorrect"}
+
+            for (const ship of shippingShips) {
+                if(parseInt(shipId) === ship.id) {
+                    shippingShip = ship.name
+                }
+                
+            }
+
+            window.alert(`${shippingShip} is being hauled by ${haulingShip}`)
             // Palais Royal is being hauled by Seawise Giant
         }    
      }
