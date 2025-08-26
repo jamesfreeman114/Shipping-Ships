@@ -1,4 +1,7 @@
-import { getShippingShips } from "./database.js";
+import { getShippingShips, getHaulers } from "./database.js";
+
+
+
 
 export const shippingShipsList = () => {
 
@@ -8,10 +11,52 @@ export const shippingShipsList = () => {
     
     for (const ship of cargoShips) {
 
-        cargoShipHTML += `<li>${ship.name}</li>`        
+        cargoShipHTML += `<li
+                           data-type="cargoship"
+                           data-id="${ship.id}"
+                           data-foreignkey=${ship.haulerId}
+                           data-name=${ship.name}>
+                           ${ship.name}
+                           </li>`        
     }
     
     cargoShipHTML += "</ul>"
 
     return cargoShipHTML
 }
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+
+        // Was a shipping ship list item clicked?
+
+        if (itemClicked.dataset.type === "cargoship") {
+
+            // Get the haulerId value of the shipping ship clicked
+
+            const haulerId = itemClicked.dataset.foreignkey
+
+            // Define a default object for the found hauler
+            let haulingShip = { name: "Incorrect" }
+
+            // Iterate the array of hauler objects
+
+            const haulers = getHaulers()
+
+                // Does the haulerId foreign key match the id of the current hauler?
+                for (const hauler of haulers) {
+                    if (parseInt(haulerId) === hauler.id) {
+                    
+                    // Reassign the value of `haulingShip` to the current hauler
+                    haulingShip =  hauler.name
+                    }
+                } 
+            // Show an alert to the user with this format...
+
+            window.alert(`${itemClicked.dataset.name} is being hauled by ${haulingShip}`)
+            // Palais Royal is being hauled by Seawise Giant
+        }    
+     }
+)
