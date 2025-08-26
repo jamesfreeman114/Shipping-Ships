@@ -7,8 +7,8 @@ const database = {
     ],
     haulers: [
         { id: 1, name: "Ol Bessy", dockId: 4 },
-        { id: 2, name: "Jenny", dockId: 2 },
-        { id: 3, name: "Edmund Fitzgerald", dockId: 1 },
+        { id: 2, name: "Jenny", dockId: 4 },
+        { id: 3, name: "Edmund Fitzgerald", dockId: 4 },
         { id: 4, name: "TC Tugger", dockId: 3 },
         { id: 5, name: "Boaty McBoatface", dockId: 2}
     ],
