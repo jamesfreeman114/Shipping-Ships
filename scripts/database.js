@@ -13,16 +13,16 @@ const database = {
         { id: 5, name: "Boaty McBoatface", dockId: 2}
     ],
     shippingShips: [
-        {id: 1, name: "Royale", dockId: 1 },
-        {id: 2, name: "Atlantic Star", dockId: 2 },
-        {id: 3, name: "Pacific Dream", dockId: 3 },
-        {id: 4, name: "Northern Wind", dockId: 1 },
-        {id: 5, name: "Golden Horizon", dockId: 4 },
-        {id: 6, name: "Ocean Pioneer", dockId: 2 },
-        {id: 7, name: "Voyager Elite", dockId: 3 },
-        {id: 8, name: "Cargo Master", dockId: 1 },
-        {id: 9, name: "Maritime Glory", dockId: 4 },
-        {id: 10, name: "Seabound Trader", dockId: 2 },
+        {id: 1, name: "Royale", haulerId: 1 },
+        {id: 2, name: "Atlantic Star", haulerId: 2 },
+        {id: 3, name: "Pacific Dream", haulerId: 3 },
+        {id: 4, name: "Northern Wind", haulerId: 3 },
+        {id: 5, name: "Golden Horizon", haulerId: 4 },
+        {id: 6, name: "Ocean Pioneer", haulerId: 5 },
+        {id: 7, name: "Voyager Elite", haulerId: 3 },
+        {id: 8, name: "Cargo Master", haulerId: 1 },
+        {id: 9, name: "Maritime Glory", haulerId:4 },
+        {id: 10, name: "Seabound Trader", haulerId: 2 },
     ]
 
 }
@@ -37,6 +37,6 @@ export const getHaulers = () => {
     return structuredClone(database.haulers)
 }
 
-export const getShippingShips = () => {
+export const getShippingShips = () => { 
     return structuredClone(database.shippingShips)
 }

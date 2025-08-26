@@ -17,5 +17,3 @@ export const DockList = () => {
     return docksHTML
 }
 
-const dockTest = DockList()
-console.log(dockTest)
