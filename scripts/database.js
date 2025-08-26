@@ -11,7 +11,20 @@ const database = {
         { id: 3, name: "Edmund Fitzgerald", dockId: 1 },
         { id: 4, name: "TC Tugger", dockId: 3 },
         { id: 5, name: "Boaty McBoatface", dockId: 2}
+    ],
+    shippingShips: [
+        {id: 1, name: "Royale", dockId: 1 },
+        {id: 2, name: "Atlantic Star", dockId: 2 },
+        {id: 3, name: "Pacific Dream", dockId: 3 },
+        {id: 4, name: "Northern Wind", dockId: 1 },
+        {id: 5, name: "Golden Horizon", dockId: 4 },
+        {id: 6, name: "Ocean Pioneer", dockId: 2 },
+        {id: 7, name: "Voyager Elite", dockId: 3 },
+        {id: 8, name: "Cargo Master", dockId: 1 },
+        {id: 9, name: "Maritime Glory", dockId: 4 },
+        {id: 10, name: "Seabound Trader", dockId: 2 },
     ]
+
 }
 
 
@@ -22,4 +35,8 @@ export const getDocks = () => {
 
 export const getHaulers = () => {
     return structuredClone(database.haulers)
+}
+
+export const getShippingShips = () => {
+    return structuredClone(database.shippingShips)
 }
