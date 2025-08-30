@@ -37,9 +37,24 @@ document.addEventListener(
 export const haulerList = () => {
     const haulers = getHaulers()
 
+    const sortedHaulers = haulers.sort((a,b) => {
+        const haulerA = a.name
+        const haulerB = b.name
+
+        if (haulerA < haulerB) {
+            return -1
+        }
+
+        if (haulerA > haulerB) {
+            return 1
+        }
+
+        return 0
+    })
+
     let haulerHTML = "<ul>"
     
-    for (const hauler of haulers) {
+    for (const hauler of sortedHaulers) {
 
         haulerHTML += `<li 
                           data-id="${hauler.id}"

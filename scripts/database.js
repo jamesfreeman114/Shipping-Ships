@@ -23,7 +23,22 @@ const database = {
         {id: 8, name: "Cargo Master", haulerId: 1 },
         {id: 9, name: "Maritime Glory", haulerId:4 },
         {id: 10, name: "Seabound Trader", haulerId: 2 },
+    ],
+    dockContracts: [
+        {dock_id: 1, hauler_id: 1 },
+        {dock_id: 1, hauler_id: 2 },
+        {dock_id: 2, hauler_id: 2 },
+        {dock_id: 2, hauler_id: 3 },
+        {dock_id: 3, hauler_id: 3 },
+        {dock_id: 3, hauler_id: 4 },
+        {dock_id: 4, hauler_id: 2 },
+        {dock_id: 4, hauler_id: 3 },
+        {dock_id: 4, hauler_id: 4 },
     ]
+
+
+
+
 
 }
 
@@ -39,4 +54,8 @@ export const getHaulers = () => {
 
 export const getShippingShips = () => { 
     return structuredClone(database.shippingShips)
+}
+
+export const getDockContracts = () => {
+    return structuredClone(database.dockContracts)
 }
