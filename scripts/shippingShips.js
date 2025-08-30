@@ -8,8 +8,28 @@ export const shippingShipsList = () => {
     const cargoShips = getShippingShips()
 
     let cargoShipHTML = "<ul>"
+
+    const sortedShips = cargoShips.sort((a,b) => {
+        const nameA = a.name
+        const nameB = b.name
+
+        if (nameA < nameB) {
+            return -1;
+        }
+
+        if (nameA > nameB) {
+            return 1;
+        }
+
+        return 0
+    })
     
-    for (const ship of cargoShips) {
+    
+
+    for (const ship of sortedShips) {
+        
+    
+
 
         cargoShipHTML += `<li
                            data-type="cargoship"
